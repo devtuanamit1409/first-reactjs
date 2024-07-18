@@ -1,10 +1,8 @@
-import { Helmet } from "react-helmet";
+import Seo from "../components/Seo";
 const InteriorDesgin = () => {
   return (
     <>
-      <Helmet>
-        <title>Thiết kế nội thất</title>
-      </Helmet>
+      <Seo />
       <h1>Thiết kế nội thất</h1>
     </>
   );

@@ -2,7 +2,7 @@ import logo from "../assets/logo-new.jpg";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false); // boolean
   //   const isOpen = false;
   const handleClick = () => {
     if (isOpen) {
