@@ -26,24 +26,29 @@ const Home = ({ title }) => {
   //   }
   // };
 
-  // const [data, setData] = useState([]);
+  const [data, setData] = useState([]);
+  const token =
+    "5b82143efa09118ffe1e66d2a694458862dc4cb2142da80466f60b4cf89369b7225b6991e4480aa8186086a7cd19d17523e2229af397d816dde2478f6fad2b328658bf93a76054f0d3e5a574b425ce14d1d567a9765b3e00549de2d7de4facc10eedd9d576660466aa03825c76ee3c5b84e1ea5a64477eee61f956d10c944afd";
+  const getData = async () => {
+    try {
+      const res = await axios.get(`http://localhost:1337/api/bai-viets`, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
-  // const getData = async () => {
-  //   try {
-  //     const res = await axios.get(
-  //       `https://data-code-reactjs-default-rtdb.firebaseio.com/toDolist.json`
-  //     );
+      const reqData = await res.data;
+      setData(reqData);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-  //     const reqData = await res.data;
-  //     setData(reqData);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   getData();
-  // }, []);
+  useEffect(() => {
+    getData();
+  }, []);
+  console.log(data);
 
   return (
     <>
