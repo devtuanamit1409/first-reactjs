@@ -5,7 +5,7 @@ const Seo = () => {
   return (
     <>
       <Helmet>
-        <title>dsadsadsa</title>
+        <title>Learn ReactJS</title>
       </Helmet>
     </>
   );

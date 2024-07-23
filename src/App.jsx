@@ -2,8 +2,9 @@ import "./App.css";
 import Header from "./components/Header";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
-import InteriorDesgin from "./pages/InteriorDesgin";
+import InteriorDesign from "./pages/InteriorDesign";
 import DetailInteriorDesign from "./pages/DetailInteriorDesign";
+import TodoClick from "./pages/TodoList";
 
 function App() {
   return (
@@ -11,11 +12,12 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/thiet-ke-noi-that" element={<InteriorDesgin />} />
+        <Route path="/thiet-ke-noi-that" element={<InteriorDesign />} />
         <Route
           path="/thiet-ke-noi-that/:slug"
           element={<DetailInteriorDesign />}
         />
+        <Route path="/to-do-list" element={<TodoClick />} />
       </Routes>
     </>
   );

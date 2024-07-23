@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   // const [result, setResult] = useState(0);
@@ -30,7 +31,7 @@ const Home = () => {
   const getData = async () => {
     try {
       const res = await axios.get(
-        `https://data-tiki-e-commerce-website-default-rtdb.firebaseio.com/categories.json`
+        `https://data-code-reactjs-default-rtdb.firebaseio.com/toDolist.json`
       );
 
       const reqData = await res.data;
@@ -47,7 +48,13 @@ const Home = () => {
 
   return (
     <>
-      {/* <div>
+      {
+        <div>
+          <h3 className="container mt-[50px] italic font-[500]">
+            <Link to="/to-do-list">To Do List</Link>
+          </h3>
+        </div>
+        /* <div>
         <div className="flex justify-center">
           <input
             value={number1}
@@ -96,7 +103,8 @@ const Home = () => {
             /
           </button>
         </div>
-      </div> */}
+      </div> */
+      }
     </>
   );
 };
