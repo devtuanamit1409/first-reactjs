@@ -1,9 +1,8 @@
 import Seo from "../components/Seo";
-const InteriorDesgin = () => {
+const InteriorDesgin = ({ title }) => {
   return (
     <>
-      <Seo />
-      <h1>Thiết kế nội thất</h1>
+      <Seo title={title} />
     </>
   );
 };

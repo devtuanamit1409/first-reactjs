@@ -7,12 +7,17 @@ import DetailInteriorDesign from "./pages/DetailInteriorDesign";
 import TodoClick from "./pages/TodoList";
 
 function App() {
+  const title = "Đây là trang HOME";
+  const title2 = "Đây là trang thiết kế nội thất";
   return (
     <>
       <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/thiet-ke-noi-that" element={<InteriorDesign />} />
+        <Route path="/" element={<Home title={title} />} />
+        <Route
+          path="/thiet-ke-noi-that"
+          element={<InteriorDesign title={title2} />}
+        />
         <Route
           path="/thiet-ke-noi-that/:slug"
           element={<DetailInteriorDesign />}

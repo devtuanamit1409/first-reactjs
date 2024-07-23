@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Seo from "../components/Seo";
 
-const Home = () => {
+const Home = ({ title }) => {
   // const [result, setResult] = useState(0);
   // const [number1, setNumber1] = useState(0);
-  // const [number2, setNumber2] = useState(0);
 
   // const math = (operator) => {
   //   switch (operator) {
@@ -26,35 +26,34 @@ const Home = () => {
   //   }
   // };
 
-  const [data, setData] = useState([]);
+  // const [data, setData] = useState([]);
 
-  const getData = async () => {
-    try {
-      const res = await axios.get(
-        `https://data-code-reactjs-default-rtdb.firebaseio.com/toDolist.json`
-      );
+  // const getData = async () => {
+  //   try {
+  //     const res = await axios.get(
+  //       `https://data-code-reactjs-default-rtdb.firebaseio.com/toDolist.json`
+  //     );
 
-      const reqData = await res.data;
-      setData(reqData);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  //     const reqData = await res.data;
+  //     setData(reqData);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
-  useEffect(() => {
-    getData();
-  }, []);
-  console.log(data);
+  // useEffect(() => {
+  //   getData();
+  // }, []);
 
   return (
     <>
-      {
-        <div>
-          <h3 className="container mt-[50px] italic font-[500]">
-            <Link to="/to-do-list">To Do List</Link>
-          </h3>
-        </div>
-        /* <div>
+      <Seo title={title} />
+      {/* <div>
+        <h3 className="container mt-[50px] italic font-[500]">
+          <Link to="/to-do-list">To Do List</Link>
+        </h3>
+      </div> */}
+      {/* <div>
         <div className="flex justify-center">
           <input
             value={number1}
@@ -103,8 +102,7 @@ const Home = () => {
             /
           </button>
         </div>
-      </div> */
-      }
+      </div> */}
     </>
   );
 };

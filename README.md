@@ -16,3 +16,25 @@ Currently, two official plugins are available:
 # Dùng onChange để tương tác với input
 
 # BTVN : Làm todo list
+
+# ... sao chép lại dữ liệu hiện tại trong mảng đó
+
+# ví dụ setValuetoDo([...valueTodo, defaultTodo]); : nghĩa là sao chép lại mảng valueTodo cũ và thêm 1 phần tử defaultTodo vào mảng
+
+# a [2 , 3 , 5]
+
+# SetA(...a , 8) => a = [ 2 ,3 ,5 ,8]
+
+# a = [2 , 3 , 5]
+
+# = [0 , 1 , 2]
+
+# truyền key = 2 thì a.filter((\_, i) => i !== key) = [2, 3]
+
+# a[0]
+
+# for ( i = 0 , i < a.lenght , i++){
+
+# }
+
+# Props : Truyền dữ liệu giữa các component ( biến, hàm , object ,....)

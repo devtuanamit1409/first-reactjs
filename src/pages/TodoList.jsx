@@ -5,14 +5,17 @@ import { useState } from "react";
 
 const TodoClick = () => {
   const [valueTodo, setValuetoDo] = useState([]);
-  console.log(valueTodo);
+
   const [defaultTodo, setDefaulttoDo] = useState([]);
   const addTodo = () => {
-    setValuetoDo(defaultTodo);
+    setValuetoDo([...valueTodo, defaultTodo]);
+    setDefaulttoDo("");
   };
-  const delTodo = () => {
-    setValuetoDo("");
+  const delTodo = (key) => {
+    const newTodos = valueTodo.filter((_, i) => i !== key); // danh sách todo còn lại khi được xóa xong
+    setValuetoDo(newTodos);
   };
+  console.log(valueTodo);
   return (
     <>
       <Seo />
@@ -37,10 +40,21 @@ const TodoClick = () => {
                 Thêm
               </button>
             </div>
-            <div className="flex justify-between items-center bg-[#fff] px-[20px] py-[10px] font-bold h-[50px] rounded-[10px]">
-              <span>{valueTodo}</span>
-              <FontAwesomeIcon onClick={() => delTodo()} icon={faTrashCan} />
-            </div>
+            {valueTodo.length > 0 &&
+              valueTodo.map((item, key) => {
+                return (
+                  <div
+                    key={key}
+                    className="flex justify-between items-center bg-[#fff] px-[20px] py-[10px] font-bold h-[50px] rounded-[10px]"
+                  >
+                    <span>{item}</span>
+                    <FontAwesomeIcon
+                      onClick={() => delTodo(key)}
+                      icon={faTrashCan}
+                    />
+                  </div>
+                );
+              })}
           </div>
         </div>
       </div>

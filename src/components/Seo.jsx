@@ -1,11 +1,12 @@
-import React from "react";
+/* eslint-disable react/prop-types */
+
 import { Helmet } from "react-helmet";
 
-const Seo = () => {
+const Seo = ({ title }) => {
   return (
     <>
       <Helmet>
-        <title>Learn ReactJS</title>
+        <title>{title}</title>
       </Helmet>
     </>
   );
