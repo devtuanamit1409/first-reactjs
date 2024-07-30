@@ -53,11 +53,11 @@ const Home = ({ title }) => {
   return (
     <>
       <Seo title={title} />
-      {/* <div>
+      <div>
         <h3 className="container mt-[50px] italic font-[500]">
           <Link to="/to-do-list">To Do List</Link>
         </h3>
-      </div> */}
+      </div>
       {/* <div>
         <div className="flex justify-center">
           <input
