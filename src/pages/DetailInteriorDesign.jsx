@@ -30,7 +30,9 @@ const DetailInteriorDesign = () => {
   return (
     <>
       <Seo />
-      <h1>Đây là trang chi tiết {slug}</h1>
+      <h1 className="flex justify-center text-[32px] text-[#4920ff] font-bold">
+        {slug}
+      </h1>
     </>
   );
 };
