@@ -1,9 +1,12 @@
 import logo from "../assets/logo-new.jpg";
-import { Link } from "react-router-dom";
-import { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { useEffect, useState } from "react";
+import enpoint from "../enums/endpoint";
+import axios from "axios";
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false); // boolean
-  //   const isOpen = false;
+  const [data, setData] = useState([]);
+  const token = import.meta.env.VITE_TOKEN;
   const handleClick = () => {
     if (isOpen) {
       setIsOpen(false);
@@ -11,6 +14,29 @@ const Header = () => {
       setIsOpen(true);
     }
   };
+  const searchData = {
+    populate: ["menu.submenu"].toString(),
+  };
+
+  const searchParmas = new URLSearchParams(searchData).toString();
+
+  const getHeader = async () => {
+    try {
+      const response = await axios.get(`${enpoint.HEADER}?${searchParmas}`, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + token,
+        },
+      });
+      setData(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    getHeader();
+  }, []);
+  console.log(data);
   return (
     <>
       <div className="relative">
@@ -20,18 +46,24 @@ const Header = () => {
               <img src={logo} alt="ảnh lỗi" width="200px" />
             </div>
             <div className="hidden lg:block">
-              <ul className="flex">
-                <li className="mr-[20px] text-main-text font-bold">
-                  <Link to="/">Trang chủ</Link>
-                </li>
-                <li className="mr-[20px]">
-                  <Link to="/thiet-ke-noi-that">Thiết kế nội thất</Link>
-                </li>
-                <li className="mr-[20px]">Dự án tiêu biểu</li>
-                <li className="mr-[20px]">Dự án hoàn thiện</li>
-                <li className="mr-[20px]">Thước lỗ ban</li>
-                <li className="mr-[20px]">Phụ kiện</li>
-                <li className="mr-[20px]">Liên hệ</li>
+              <ul className="flex list-header">
+                {data &&
+                  data?.data?.attributes?.menu?.map((item) => {
+                    return (
+                      <>
+                        <li>
+                          <NavLink
+                            className={({ isActive, isPending }) =>
+                              isPending ? "pending" : isActive ? "active" : ""
+                            }
+                            to={item.link}
+                          >
+                            {item.name}
+                          </NavLink>
+                        </li>
+                      </>
+                    );
+                  })}
               </ul>
             </div>
             <div className="lg:hidden" onClick={() => handleClick()}>
