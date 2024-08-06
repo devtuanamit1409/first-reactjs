@@ -9,6 +9,7 @@ import {
 import Home from "./pages/Home";
 import LoadingBar from "react-top-loading-bar";
 import { useEffect, useState } from "react";
+import ListBanner from "./components/ListBanner";
 
 function App() {
   const title = "Đây là trang HOME";
@@ -37,6 +38,7 @@ function App() {
         onLoaderFinished={() => setProgress(0)}
       />
       <Header />
+      <ListBanner />
 
       <Routes>
         <Route path="/" element={<Home title={title} />} />
