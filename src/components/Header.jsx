@@ -17,9 +17,7 @@ const Header = () => {
   const searchData = {
     populate: ["menu.submenu"].toString(),
   };
-
   const searchParmas = new URLSearchParams(searchData).toString();
-
   const getHeader = async () => {
     try {
       const response = await axios.get(`${enpoint.HEADER}?${searchParmas}`, {
@@ -36,10 +34,10 @@ const Header = () => {
   useEffect(() => {
     getHeader();
   }, []);
-  console.log(data);
+  // console.log(data);
   return (
     <>
-      <div className="relative">
+      <div className="relative mb-[10px]">
         <div className="container mx-auto">
           <div className="flex items-center justify-between">
             <div>

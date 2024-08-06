@@ -10,6 +10,7 @@ import Home from "./pages/Home";
 import LoadingBar from "react-top-loading-bar";
 import { useEffect, useState } from "react";
 import ListBanner from "./components/ListBanner";
+import ContentMain from "./components/ContentMain";
 
 function App() {
   const title = "Đây là trang HOME";
@@ -39,6 +40,7 @@ function App() {
       />
       <Header />
       <ListBanner />
+      <ContentMain />
 
       <Routes>
         <Route path="/" element={<Home title={title} />} />
