@@ -1,8 +1,15 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
+import ListBanner from "../components/ListBanner";
+import ContentMain from "../components/ContentMain";
 
 const Home = () => {
-  return <></>;
+  return (
+    <>
+      <div className="pt-[80px]">
+        <ListBanner />
+        <ContentMain />
+      </div>
+    </>
+  );
 };
 
 export default Home;

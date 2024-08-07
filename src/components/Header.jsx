@@ -1,5 +1,5 @@
 import logo from "../assets/logo-new.jpg";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import enpoint from "../enums/endpoint";
 import axios from "axios";
@@ -37,7 +37,7 @@ const Header = () => {
   // console.log(data);
   return (
     <>
-      <div className="relative mb-[10px]">
+      <div className="fixed z-50 bg-[#fff] w-full py-[10px] border-b-[1px] border-[#ff0000]">
         <div className="container mx-auto">
           <div className="flex items-center justify-between">
             <div>
@@ -46,20 +46,18 @@ const Header = () => {
             <div className="hidden lg:block">
               <ul className="flex list-header">
                 {data &&
-                  data?.data?.attributes?.menu?.map((item) => {
+                  data?.data?.attributes?.menu?.map((item, key) => {
                     return (
-                      <>
-                        <li>
-                          <NavLink
-                            className={({ isActive, isPending }) =>
-                              isPending ? "pending" : isActive ? "active" : ""
-                            }
-                            to={item.link}
-                          >
-                            {item.name}
-                          </NavLink>
-                        </li>
-                      </>
+                      <li key={key}>
+                        <NavLink
+                          className={({ isActive, isPending }) =>
+                            isPending ? "pending" : isActive ? "active" : ""
+                          }
+                          to={item.link}
+                        >
+                          {item.name}
+                        </NavLink>
+                      </li>
                     );
                   })}
               </ul>

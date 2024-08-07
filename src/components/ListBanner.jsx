@@ -1,4 +1,3 @@
-import React from "react";
 import { useEffect, useState } from "react";
 import enpoint from "../enums/endpoint";
 import axios from "axios";
@@ -51,21 +50,19 @@ const ListBanner = () => {
           className="mySwiper"
         >
           {data &&
-            data?.data?.attributes?.slide_banner?.map((item) => {
+            data?.data?.attributes?.slide_banner?.map((item, key) => {
               return (
-                <>
-                  <SwiperSlide>
-                    <img
-                      className="my-[20px]"
-                      src={
-                        import.meta.env.VITE_URL_BE +
-                        item.image?.data?.attributes?.url
-                      }
-                      alt={item.alt}
-                      width="100%"
-                    />
-                  </SwiperSlide>
-                </>
+                <SwiperSlide key={key}>
+                  <img
+                    className="my-[20px]"
+                    src={
+                      import.meta.env.VITE_URL_BE +
+                      item.image?.data?.attributes?.url
+                    }
+                    alt={item.alt}
+                    width="100%"
+                  />
+                </SwiperSlide>
               );
             })}
         </Swiper>

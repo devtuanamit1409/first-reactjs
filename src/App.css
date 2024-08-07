@@ -19,3 +19,8 @@ h4 {
   font-weight: 500 !important;
   color: #ffffff;
 }
+ol,
+ul,
+menu {
+  list-style: disc !important;
+}

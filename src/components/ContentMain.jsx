@@ -35,7 +35,6 @@ const ContentMain = () => {
   useEffect(() => {
     getContentMain();
   }, []);
-  console.log(data);
 
   return (
     <>
@@ -75,10 +74,10 @@ const ContentMain = () => {
         </Link>
       </div>
       {data &&
-        data?.data?.attributes?.content_services?.map((content_services) => {
-          return (
-            <>
-              <div className="my-[30px]">
+        data?.data?.attributes?.content_services?.map(
+          (content_services, key) => {
+            return (
+              <div key={key} className="my-[30px]">
                 <div className="mb-[10px]">
                   <h3 className="text-center">{content_services.title}</h3>
                   <p className="text-[#b44b22] text-[20px] font-[500] text-center">
@@ -87,24 +86,23 @@ const ContentMain = () => {
                 </div>
                 <div className="grid grid-cols-4 gap-4">
                   {data?.data?.attributes?.content_services &&
-                    content_services?.image_detail?.map((item) => {
+                    content_services?.image_detail?.map((item, key) => {
                       return (
-                        <>
-                          <div>
-                            <img
-                              className="rounded-tl-[10px] rounded-tr-[10px]"
-                              src={
-                                import.meta.env.VITE_URL_BE +
-                                item?.image?.data?.attributes?.url
-                              }
-                              alt=""
-                              width="100%"
-                            />
-                            <div className="flex justify-center bg-[#b44b22] rounded-bl-[10px] rounded-br-[10px]">
-                              <h4 className="p-[5px]">{item?.name}</h4>
-                            </div>
+                        // eslint-disable-next-line react/jsx-key
+                        <div key={key}>
+                          <img
+                            className="rounded-tl-[10px] rounded-tr-[10px]"
+                            src={
+                              import.meta.env.VITE_URL_BE +
+                              item?.image?.data?.attributes?.url
+                            }
+                            alt=""
+                            width="100%"
+                          />
+                          <div className="flex justify-center bg-[#b44b22] rounded-bl-[10px] rounded-br-[10px]">
+                            <h4 className="p-[5px]">{item?.name}</h4>
                           </div>
-                        </>
+                        </div>
                       );
                     })}
                 </div>
@@ -112,9 +110,9 @@ const ContentMain = () => {
                   <div className="bg-[#b44b22] w-[15px] h-[15px] rounded-[50%]"></div>
                 </div>
               </div>
-            </>
-          );
-        })}
+            );
+          }
+        )}
       <div dangerouslySetInnerHTML={{ __html: dataKHACBIET }}></div>
     </>
   );
