@@ -32,6 +32,7 @@ const ListBanner = () => {
     getListBanner();
   }, []);
   // console.log(data);
+  // console.log(data?.data?.attributes?.slide_banner);
   return (
     <>
       <div className="border-t-[1px] border-[#d08000]">
@@ -61,7 +62,7 @@ const ListBanner = () => {
                         item.image?.data?.attributes?.url
                       }
                       alt={item.alt}
-                      width=""
+                      width="100%"
                     />
                   </SwiperSlide>
                 </>
