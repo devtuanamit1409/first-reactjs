@@ -13,6 +13,7 @@ const ContentMain = () => {
       "tab_content.logo",
       "banner_baogia.image",
       "content_services.image_detail.image",
+      "tab_content.images.image",
     ].toString(),
   };
   const searchParmas = new URLSearchParams(searchData).toString();
@@ -35,24 +36,60 @@ const ContentMain = () => {
   useEffect(() => {
     getContentMain();
   }, []);
+  console.log(data);
 
   return (
     <>
       <div className="flex justify-center">
         <h3>{data && data?.data?.attributes?.title_home}</h3>
       </div>
-      <div>
+      <div className="my-[20px]">
         <Tabs
           onChange={onChange}
           type="card"
-          items={new Array(3).fill(null).map((_, i) => {
-            const id = String(i + 1);
-            return {
-              label: `Tab ${id}`,
-              key: id,
-              children: `Content of Tab Pane ${id}`,
-            };
-          })}
+          items={
+            data &&
+            data?.data?.attributes?.tab_content?.map((item, key) => {
+              const id = key + 1;
+              return {
+                label: (
+                  <div>
+                    <div className="flex justify-center">
+                      <img
+                        src={
+                          import.meta.env.VITE_URL_BE +
+                          item?.logo?.data?.attributes?.url
+                        }
+                        alt=""
+                      />
+                    </div>
+                    <div className="flex justify-center">{item.title}</div>
+                  </div>
+                ),
+                key: id,
+                children: (
+                  <div className="grid grid-cols-3 gap-4">
+                    {data?.data?.attributes?.title_home &&
+                      item.images?.map((image, index) => {
+                        return (
+                          <div key={index}>
+                            <img
+                              className="h-[100%] rounded-[10px]"
+                              src={
+                                import.meta.env.VITE_URL_BE +
+                                image?.image?.data?.attributes?.url
+                              }
+                              alt={image?.alt}
+                              width="100%"
+                            />
+                          </div>
+                        );
+                      })}
+                  </div>
+                ),
+              };
+            })
+          }
         />
       </div>
       <div>
@@ -88,7 +125,6 @@ const ContentMain = () => {
                   {data?.data?.attributes?.content_services &&
                     content_services?.image_detail?.map((item, key) => {
                       return (
-                        // eslint-disable-next-line react/jsx-key
                         <div key={key}>
                           <img
                             className="rounded-tl-[10px] rounded-tr-[10px]"
