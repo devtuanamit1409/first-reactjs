@@ -48,7 +48,7 @@ const Header = () => {
                 {data &&
                   data?.data?.attributes?.menu?.map((item, key) => {
                     return (
-                      <li key={key}>
+                      <li className="list-none" key={key}>
                         <NavLink
                           className={({ isActive, isPending }) =>
                             isPending ? "pending" : isActive ? "active" : ""
