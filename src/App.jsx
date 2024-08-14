@@ -1,5 +1,5 @@
-import "./App.css";
-import Header from "./components/Header";
+import "./assets/styles/App.css";
+import Header from "./components/layouts/Header";
 import {
   Route,
   Routes,

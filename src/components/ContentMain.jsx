@@ -3,9 +3,12 @@ import { useState, useEffect } from "react";
 import enpoint from "../enums/endpoint";
 import { Tabs } from "antd";
 import { Link } from "react-router-dom";
+import "../assets/styles/home/tab.css";
+// import TabSkeleton from "./loading/TabSkeleton";
 
 const ContentMain = () => {
   const [data, setData] = useState([]);
+  const [tabData, setTabData] = useState([]);
   const token = import.meta.env.VITE_TOKEN;
   const dataKHACBIET = data?.data?.attributes?.khacbiet;
   const searchData = {
@@ -26,6 +29,7 @@ const ContentMain = () => {
         },
       });
       setData(response.data);
+      setTabData(response.data?.data?.attributes?.tab_content);
     } catch (error) {
       console.log(error);
     }
@@ -36,14 +40,14 @@ const ContentMain = () => {
   useEffect(() => {
     getContentMain();
   }, []);
-  console.log(data);
+  console.log(tabData);
 
   return (
     <>
       <div className="flex justify-center">
         <h3>{data && data?.data?.attributes?.title_home}</h3>
       </div>
-      <div className="my-[20px]">
+      <div className="my-[20px] ">
         <Tabs
           onChange={onChange}
           type="card"
@@ -72,9 +76,9 @@ const ContentMain = () => {
                     {data?.data?.attributes?.title_home &&
                       item.images?.map((image, index) => {
                         return (
-                          <div key={index}>
+                          <div className="box-item" key={index}>
                             <img
-                              className="h-[100%] rounded-[10px]"
+                              className="h-[250px] md:h-[400px] rounded-[10px] "
                               src={
                                 import.meta.env.VITE_URL_BE +
                                 image?.image?.data?.attributes?.url
@@ -91,6 +95,24 @@ const ContentMain = () => {
             })
           }
         />
+        {/* {tabData.length > 0 ? (
+          <div className="flex justify-center">
+            <Tabs
+              onChange={onChange}
+              type="card"
+              items={tabData?.map((value, key) => {
+                const id = String(key + 1);
+                return {
+                  label: value?.title,
+                  key: id,
+                  children: `Content of Tab Pane ${id}`,
+                };
+              })}
+            />
+          </div>
+        ) : (
+          <TabSkeleton />
+        )} */}
       </div>
       <div>
         <Link
