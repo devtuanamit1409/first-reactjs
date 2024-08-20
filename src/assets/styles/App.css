@@ -24,7 +24,7 @@ ul,
 menu {
   list-style: disc !important;
 }
-.ant-tabs-nav-list {
-  display: flex !important;
-  justify-content: center !important;
+.ant-tabs-nav-wrap {
+  display: flex;
+  justify-content: center;
 }
