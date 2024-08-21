@@ -2,9 +2,7 @@ import { Tabs } from "antd";
 import { Link } from "react-router-dom";
 import TabSkeleton from "../loading/TabSkeleton";
 const TabContent = ({ tabContent, titleContent, bannerBaogia }) => {
-  const onChange = (key) => {
-    console.log(key);
-  };
+  const onChange = (key) => {};
   return (
     <>
       <div className="flex justify-center">
@@ -64,7 +62,7 @@ const TabContent = ({ tabContent, titleContent, bannerBaogia }) => {
         )}
       </div>
       <div>
-        <Link to={import.meta.env.VITE_URL_FE + bannerBaogia?.link}>
+        <Link to={bannerBaogia?.link || "/"}>
           <img
             src={
               import.meta.env.VITE_URL_BE +

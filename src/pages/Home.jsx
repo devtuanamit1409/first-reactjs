@@ -14,6 +14,7 @@ const Home = () => {
   const [bannerBaogia, setBannerbaoGia] = useState([]);
   const [contentServices, setContentservices] = useState([]);
   const [dataKHACBIET, setDataKHACBIET] = useState([]);
+
   const token = import.meta.env.VITE_TOKEN;
   const searchData = {
     populate: [
@@ -40,6 +41,7 @@ const Home = () => {
       setTitlecontent(response.data?.data?.attributes?.title_home);
       setBannerbaoGia(response.data?.data?.attributes?.banner_baogia);
       setContentservices(response.data?.data?.attributes?.content_services);
+
       setDataKHACBIET(response.data?.data?.attributes?.khacbiet);
     } catch (error) {
       console.log(error);
