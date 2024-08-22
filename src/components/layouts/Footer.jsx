@@ -13,6 +13,7 @@ const Footer = () => {
   const [mail, setMail] = useState([]);
   const [hotline, setHotline] = useState([]);
   const [workingTime, setWorkingtime] = useState([]);
+  const [customerSupport, setCustomersupport] = useState([]);
   const token = import.meta.env.VITE_TOKEN;
   const searchData = {
     populate: [
@@ -52,7 +53,8 @@ const Footer = () => {
       setWorkingtime(
         response.data?.data.attributes?.thong_tin_lien_he?.thoi_gian_lam_viec
       );
-      console.log(response);
+      setCustomersupport(response.data?.data?.attributes?.ho_tro_khach_hang);
+      console.log(customerSupport);
     } catch (error) {
       console.log(error);
     }
@@ -112,9 +114,16 @@ const Footer = () => {
           </div>
           <div className="col-span-4">
             <h5 className="text-[22px] uppercase font-[600]">{titleFooter2}</h5>
-            {/* dangerouslySetInnerHTML={{ __html: data.data.attributes.ho_tro_khach_hang.support_service }} */}
-            <div>as</div>
-            <div>as</div>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: customerSupport.support_service,
+              }}
+            ></div>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: customerSupport.maps,
+              }}
+            ></div>
           </div>
           <div className="col-span-4">
             <h5 className="text-[22px] font-[600] uppercase">{titleFooter3}</h5>
