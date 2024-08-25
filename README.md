@@ -40,3 +40,9 @@ Currently, two official plugins are available:
 # Props : Truyền dữ liệu giữa các component ( biến, hàm , object ,....)
 
 # Tạo 1 strapi , tạo bài viết , gọi danh sách bài viết , hiển thị chi tiết bài viết ( làm giao diện đẹp 1 tí , giống aqualife )
+
+# npm install -g serve
+
+# serve -s dist -l 5173
+
+# Set-ExecutionPolicy RemoteSigned

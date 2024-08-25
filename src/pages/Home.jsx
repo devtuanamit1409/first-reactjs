@@ -41,7 +41,7 @@ const Home = () => {
       setTitlecontent(response.data?.data?.attributes?.title_home);
       setBannerbaoGia(response.data?.data?.attributes?.banner_baogia);
       setContentservices(response.data?.data?.attributes?.content_services);
-      setDataKHACBIET(response.data?.data?.attributes?.khacbiet);
+      setDataKHACBIET(response.data?.data?.attributes?.content_khacbiet);
     } catch (error) {
       console.log(error);
     }
