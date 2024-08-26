@@ -6,7 +6,8 @@ import "../assets/styles/home/tab.css";
 import ListBanner from "../components/home/ListBanner";
 import TabContent from "../components/home/TabContent.jsx";
 import ContentservicesList from "../components/home/ContentservicesList.jsx";
-import KhacbietDoitac from "../components/home/KhacbietDoitac.jsx";
+import Khacbiet from "../components/home/Khacbiet.jsx";
+import ListPartner from "../components/home/ListPartner.jsx";
 const Home = () => {
   const [banner, setBanner] = useState([]);
   const [tabContent, setTabContent] = useState([]);
@@ -15,6 +16,7 @@ const Home = () => {
   const [bannerBaogia, setBannerbaoGia] = useState([]);
   const [contentServices, setContentservices] = useState([]);
   const [dataKHACBIET, setDataKHACBIET] = useState([]);
+  const [dataListpartner, setDatalistPartner] = useState([]);
   const token = import.meta.env.VITE_TOKEN;
   const searchData = {
     populate: [
@@ -24,7 +26,8 @@ const Home = () => {
       "banner_baogia.image",
       "content_services.image_detail.image",
       "tab_content.images.image",
-      "tab_khacbiet",
+      "tab_khacbiet.img_khacbiet",
+      "list_partner.img_partner.image",
     ].toString(),
   };
   const searchParmas = new URLSearchParams(searchData).toString();
@@ -43,8 +46,8 @@ const Home = () => {
       setBannerbaoGia(response.data?.data?.attributes?.banner_baogia);
       setContentservices(response.data?.data?.attributes?.content_services);
       setDataKHACBIET(response.data?.data?.attributes?.tab_khacbiet);
-      console.log(response.data?.data?.attributes?.tab_khacbiet);
-      console.log(dataKHACBIET.title);
+      setDatalistPartner(response.data?.data?.attributes?.list_partner);
+      console.log(response.data?.data?.attributes?.list_partner);
     } catch (error) {
       console.log(error);
     }
@@ -69,7 +72,8 @@ const Home = () => {
         bannerBaogia={bannerBaogia}
       />
       <ContentservicesList contentServices={contentServices} />
-      <KhacbietDoitac dataKHACBIET={dataKHACBIET} />
+      <Khacbiet dataKHACBIET={dataKHACBIET} />
+      <ListPartner dataListpartner={dataListpartner} />
     </>
   );
 };

@@ -6,7 +6,7 @@ const TabContent = ({ tabContent, titleContent, bannerBaogia }) => {
   return (
     <>
       <div className="flex justify-center">
-        <h3>{titleContent && titleContent}</h3>
+        <h3>{titleContent}</h3>
       </div>
       <div className="my-[20px] ">
         {tabContent.length > 0 ? (
