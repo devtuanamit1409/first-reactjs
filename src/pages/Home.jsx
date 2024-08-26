@@ -6,6 +6,7 @@ import "../assets/styles/home/tab.css";
 import ListBanner from "../components/home/ListBanner";
 import TabContent from "../components/home/TabContent.jsx";
 import ContentservicesList from "../components/home/ContentservicesList.jsx";
+import KhacbietDoitac from "../components/home/KhacbietDoitac.jsx";
 const Home = () => {
   const [banner, setBanner] = useState([]);
   const [tabContent, setTabContent] = useState([]);
@@ -14,7 +15,6 @@ const Home = () => {
   const [bannerBaogia, setBannerbaoGia] = useState([]);
   const [contentServices, setContentservices] = useState([]);
   const [dataKHACBIET, setDataKHACBIET] = useState([]);
-
   const token = import.meta.env.VITE_TOKEN;
   const searchData = {
     populate: [
@@ -24,6 +24,7 @@ const Home = () => {
       "banner_baogia.image",
       "content_services.image_detail.image",
       "tab_content.images.image",
+      "tab_khacbiet",
     ].toString(),
   };
   const searchParmas = new URLSearchParams(searchData).toString();
@@ -41,7 +42,9 @@ const Home = () => {
       setTitlecontent(response.data?.data?.attributes?.title_home);
       setBannerbaoGia(response.data?.data?.attributes?.banner_baogia);
       setContentservices(response.data?.data?.attributes?.content_services);
-      setDataKHACBIET(response.data?.data?.attributes?.content_khacbiet);
+      setDataKHACBIET(response.data?.data?.attributes?.tab_khacbiet);
+      console.log(response.data?.data?.attributes?.tab_khacbiet);
+      console.log(dataKHACBIET.title);
     } catch (error) {
       console.log(error);
     }
@@ -65,10 +68,8 @@ const Home = () => {
         titleContent={titleContent}
         bannerBaogia={bannerBaogia}
       />
-      <ContentservicesList
-        contentServices={contentServices}
-        dataKHACBIET={dataKHACBIET}
-      />
+      <ContentservicesList contentServices={contentServices} />
+      <KhacbietDoitac dataKHACBIET={dataKHACBIET} />
     </>
   );
 };

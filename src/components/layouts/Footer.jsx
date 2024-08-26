@@ -78,7 +78,6 @@ const Footer = () => {
         response.data?.data?.attributes?.thong_tin_xuong?.anh_xuong?.data
           ?.attributes?.alternativeText
       );
-      console.log(response.data?.data?.attributes?.thong_tin_xuong);
     } catch (error) {
       console.log(error);
     }

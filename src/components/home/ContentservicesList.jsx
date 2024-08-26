@@ -48,7 +48,6 @@ const ContentservicesList = ({ contentServices, dataKHACBIET }) => {
             </div>
           );
         })}
-      <div dangerouslySetInnerHTML={{ __html: dataKHACBIET }}></div>
     </>
   );
 };
