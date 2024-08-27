@@ -1,0 +1,7 @@
+.list_khacbiet::marker {
+  content: " ✔️";
+  font-size: 1.2em;
+}
+.list_khacbiet {
+  padding: 5px 0 5px 5px;
+}
