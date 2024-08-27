@@ -10,9 +10,9 @@ import Home from "./pages/Home";
 import LoadingBar from "react-top-loading-bar";
 import { useEffect, useState } from "react";
 import Footer from "./components/layouts/Footer";
+import Detail from "./pages/Detail";
 
 function App() {
-  const title = "Đây là trang HOME";
   const [progress, setProgress] = useState(0);
   const location = useLocation();
   const navigationType = useNavigationType();
@@ -40,7 +40,8 @@ function App() {
       <Header />
 
       <Routes>
-        <Route path="/" element={<Home title={title} />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/:slug" element={<Detail />} />
       </Routes>
       <Footer />
     </>

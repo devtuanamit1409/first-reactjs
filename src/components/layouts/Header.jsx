@@ -14,13 +14,10 @@ const Header = () => {
       setIsOpen(true);
     }
   };
-  const searchData = {
-    populate: ["menu.submenu"].toString(),
-  };
-  const searchParmas = new URLSearchParams(searchData).toString();
+
   const getHeader = async () => {
     try {
-      const response = await axios.get(`${enpoint.HEADER}?${searchParmas}`, {
+      const response = await axios.get(`${enpoint.DANH_MUC_CHA}`, {
         headers: {
           "Content-Type": "application/json",
           Authorization: "Bearer " + token,
@@ -34,7 +31,7 @@ const Header = () => {
   useEffect(() => {
     getHeader();
   }, []);
-  // console.log(data);
+  console.log("Danh mục cha", data);
   return (
     <>
       <div className="fixed z-50 bg-[#fff] w-full py-[10px] border-b-[1px] border-[#ff0000]">
@@ -46,16 +43,16 @@ const Header = () => {
             <div className="hidden lg:block">
               <ul className="flex list-header">
                 {data &&
-                  data?.data?.attributes?.menu?.map((item, key) => {
+                  data?.data?.map((item, key) => {
                     return (
                       <li className="list-none" key={key}>
                         <NavLink
                           className={({ isActive, isPending }) =>
                             isPending ? "pending" : isActive ? "active" : ""
                           }
-                          to={item.link}
+                          to={item?.attributes?.slug}
                         >
-                          {item.name}
+                          {item?.attributes?.title}
                         </NavLink>
                       </li>
                     );

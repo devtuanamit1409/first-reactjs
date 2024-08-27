@@ -24,7 +24,7 @@ const ListPartner = ({ dataListpartner }) => {
               dataListpartner.img_partner.map((item, key) => {
                 const UrlimgPartner = item.image?.data?.attributes?.url;
                 return (
-                  <SwiperSlide key={key}>
+                  <SwiperSlide key={key} className="flex justify-center">
                     <img
                       className="w-[200px]"
                       src={import.meta.env.VITE_URL_BE + UrlimgPartner}
