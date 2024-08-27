@@ -17,7 +17,7 @@ const Footer = () => {
   const token = import.meta.env.VITE_TOKEN;
   const searchData = {
     populate: [
-      "thong_tin_lien_he.list_social.avatar.title",
+      "thong_tin_lien_he.list_social.avatar",
       "thong_tin_lien_he.mail",
       "thong_tin_lien_he.hotline",
       "ho_tro_khach_hang",
@@ -33,6 +33,7 @@ const Footer = () => {
           Authorization: "Bearer " + token,
         },
       });
+      console.log(response.data);
       setTitlefooter1(
         response.data?.data?.attributes?.thong_tin_lien_he?.title_footer_1
       );
@@ -54,7 +55,6 @@ const Footer = () => {
         response.data?.data.attributes?.thong_tin_lien_he?.thoi_gian_lam_viec
       );
       setCustomersupport(response.data?.data?.attributes?.ho_tro_khach_hang);
-      console.log(customerSupport);
     } catch (error) {
       console.log(error);
     }
@@ -62,6 +62,8 @@ const Footer = () => {
   useEffect(() => {
     getFooter();
   }, []);
+  console.log(listSocial);
+
   return (
     <>
       <div className="flex justify-center bg-[#b44b22] text-[#fff]">
