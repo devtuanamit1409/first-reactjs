@@ -46,3 +46,13 @@ Currently, two official plugins are available:
 # serve -s dist -l 5173
 
 # Set-ExecutionPolicy RemoteSigned
+
+# query bắt đầu bằng dấu ? ,
+
+# em cần lấy 1 bài viết trong mảng bài viết từ database dựa trên slug ?
+
+# input : slug
+
+# output : bài viết có slug đó
+
+# truy vấn anh biết : populate , filter

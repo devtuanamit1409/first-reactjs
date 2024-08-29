@@ -11,6 +11,7 @@ import LoadingBar from "react-top-loading-bar";
 import { useEffect, useState } from "react";
 import Footer from "./components/layouts/Footer";
 import Detail from "./pages/Detail";
+import Blog from "./pages/Blog";
 
 function App() {
   const [progress, setProgress] = useState(0);
@@ -42,6 +43,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/:slug" element={<Detail />} />
+        <Route path="/tin-tuc" element={<Blog />} />
       </Routes>
       <Footer />
     </>
