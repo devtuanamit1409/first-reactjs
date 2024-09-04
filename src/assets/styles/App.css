@@ -7,7 +7,8 @@ body {
   font-weight: bold;
 }
 .list-header li {
-  margin: 0 10px;
+  padding: 0 30px;
+  border-right: 1px #b44b22 solid;
 }
 h3 {
   font-size: 26px !important;
@@ -30,4 +31,21 @@ menu {
 .ant-tabs-nav-wrap {
   display: flex;
   justify-content: center;
+}
+.submenu {
+  list-style: none !important;
+  position: absolute;
+  background-color: #fff;
+  padding: 24px 5px;
+  width: 200px;
+  line-height: 40px;
+  border-top: 3px solid #b44b22;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.submenu li {
+  font-weight: 600;
+  cursor: pointer;
+  border: none !important;
 }
