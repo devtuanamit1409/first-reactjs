@@ -44,7 +44,6 @@ const Footer = () => {
           Authorization: "Bearer " + token,
         },
       });
-      console.log(response.data);
       setTitlefooter1(
         response.data?.data?.attributes?.thong_tin_lien_he?.title_footer_1
       );
@@ -86,7 +85,6 @@ const Footer = () => {
   useEffect(() => {
     getFooter();
   }, []);
-  console.log(listSocial);
 
   return (
     <>

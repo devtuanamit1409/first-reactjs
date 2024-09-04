@@ -55,7 +55,7 @@ const Home = () => {
       setDatalistPartner(response.data?.data?.attributes?.list_partner);
       setTabshareExp(response.data?.data?.attributes?.tab_share_exp);
       setFormcontact(response.data?.data?.attributes?.image_lien_he);
-      console.log(response.data?.data?.attributes?.image_lien_he);
+      // console.log(response.data?.data?.attributes?.image_lien_he);
     } catch (error) {
       console.log(error);
     }

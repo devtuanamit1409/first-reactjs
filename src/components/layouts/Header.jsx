@@ -50,7 +50,7 @@ const Header = () => {
               <img src={logo} alt="ảnh lỗi" width="200px" />
             </div>
             <div className="hidden lg:block">
-              <ul className="flex  list-header">
+              <ul className="flex list-header">
                 {data &&
                   data?.data?.map((item, key) => {
                     return (
@@ -61,13 +61,20 @@ const Header = () => {
                       >
                         <NavLink
                           className={({ isActive, isPending }) =>
-                            isPending ? "pending" : isActive ? "active" : ""
+                            `${
+                              isPending ? "pending" : isActive ? "active" : ""
+                            } text-[#b44b22]`
                           }
                           to={item?.attributes?.slug}
                         >
                           {item?.attributes?.title}
                         </NavLink>
-                        <ul className={`submenu  hidden group-hover:block`}>
+                        <ul
+                          onMouseLeave={() => onCloseSubMenu()}
+                          className={`submenu ${
+                            subMenu ? "" : "hidden"
+                          } group-hover:block`}
+                        >
                           <li className="">Thiết kế dự án 1</li>
                           <li className="">Thiết kế dự án 2</li>
                           <li className="">Thiết kế dự án 3</li>
