@@ -1,8 +1,11 @@
 import { Tabs } from "antd";
 import { Link } from "react-router-dom";
 import TabSkeleton from "../loading/TabSkeleton";
+import "../../assets/styles/home/tab.css"; // Import file CSS nếu bạn sử dụng CSS module
+
 const TabContent = ({ tabContent, titleContent, bannerBaogia }) => {
   const onChange = (key) => {};
+
   return (
     <>
       <div className="flex justify-center">
@@ -10,10 +13,11 @@ const TabContent = ({ tabContent, titleContent, bannerBaogia }) => {
       </div>
       <div className="my-[20px] ">
         {tabContent.length > 0 ? (
-          <div className="flex justify-center">
+          <div className="tabs-container flex justify-center">
             <Tabs
               onChange={onChange}
               type="card"
+              className="responsive-tabs" // thêm class để dùng CSS
               items={tabContent?.map((value, key) => {
                 const id = String(key + 1);
                 return {
@@ -37,7 +41,10 @@ const TabContent = ({ tabContent, titleContent, bannerBaogia }) => {
                       {titleContent &&
                         value.images?.map((image, index) => {
                           return (
-                            <div className="box-item" key={index}>
+                            <div
+                              className="box-item col-span-3 md:col-span-1"
+                              key={index}
+                            >
                               <img
                                 className="h-[400px] md:h-[400px] w-[550px] md:w-[550px] rounded-[10px] "
                                 src={

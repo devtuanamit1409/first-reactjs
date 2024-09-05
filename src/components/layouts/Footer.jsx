@@ -92,7 +92,7 @@ const Footer = () => {
     <>
       <div className="flex justify-center bg-[#b44b22] text-[#fff]">
         <div className="grid grid-cols-12 gap-4 w-[95%]">
-          <div className="col-span-4">
+          <div className="col-span-12 md:col-span-4">
             <h5 className="text-[22px] font-[600] uppercase pt-[20px] pb-[5px]">
               {titleFooter1}
             </h5>
@@ -137,7 +137,7 @@ const Footer = () => {
               <p className="text-[16px]">{workingTime}</p>
             </div>
           </div>
-          <div className="col-span-4">
+          <div className="col-span-12 md:col-span-4">
             <h5 className="text-[22px] uppercase font-[600] pt-[20px] pb-[5px]">
               {titleFooter2}
             </h5>
@@ -164,7 +164,7 @@ const Footer = () => {
               }}
             ></div>
           </div>
-          <div className="col-span-4">
+          <div className="col-span-12 md:col-span-4">
             <h5 className="text-[22px] font-[600] uppercase pt-[20px] pb-[5px]">
               {titleFooter3}
             </h5>

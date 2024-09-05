@@ -1,11 +1,12 @@
 import { Swiper, SwiperSlide } from "swiper/react";
+import React, { useRef, useState } from "react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 const ContentservicesList = ({ contentServices }) => {
   return (
     <>
-      {contentServices &&
+      {/* {contentServices &&
         contentServices.map((content_services, keyContent) => {
           return (
             <div key={content_services.id || keyContent} className="my-[30px]">
@@ -47,7 +48,56 @@ const ContentservicesList = ({ contentServices }) => {
               </Swiper>
             </div>
           );
-        })}
+        })} */}
+
+      <Swiper
+        slidesPerView={2}
+        spaceBetween={10}
+        pagination={{
+          clickable: true,
+        }}
+        breakpoints={{
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 12,
+          },
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 12,
+          },
+          1024: {
+            slidesPerView: 4,
+            spaceBetween: 12,
+          },
+        }}
+        modules={[Pagination]}
+        className="mySwiper"
+      >
+        <SwiperSlide>
+          <img
+            src="https://lotusarchvn.com/images/tk-chungcu.jpg"
+            width="100%"
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img
+            src="https://lotusarchvn.com/images/tk-chungcu.jpg"
+            width="100%"
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img
+            src="https://lotusarchvn.com/images/tk-chungcu.jpg"
+            width="100%"
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img
+            src="https://lotusarchvn.com/images/tk-chungcu.jpg"
+            width="100%"
+          />
+        </SwiperSlide>
+      </Swiper>
     </>
   );
 };

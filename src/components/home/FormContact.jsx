@@ -1,10 +1,13 @@
 import enpoint from "../../enums/endpoint";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react"; // hook
+import { Button, message } from "antd";
 
 const FormContact = () => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
+  const [messageApi, contextHolder] = message.useMessage();
+
   const token = import.meta.env.VITE_TOKEN;
   const data = {
     data: {
@@ -20,9 +23,14 @@ const FormContact = () => {
           Authorization: "Bearer " + token,
         },
       });
-      console.log(response);
+      if (response.status === 200) {
+        messageApi.success("Gửi thành công");
+      } else {
+        messageApi.error("Gửi không thành công");
+      }
     } catch (error) {
       console.log(error);
+      messageApi.error("Có lỗi xảy ra khi gửi. Vui lòng thử lại sau.");
     }
   };
 
@@ -52,6 +60,7 @@ const FormContact = () => {
           </div>
         </div>
       </div>
+      {contextHolder}
     </>
   );
 };
